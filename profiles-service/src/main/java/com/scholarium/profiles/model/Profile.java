@@ -1,7 +1,7 @@
 package com.scholarium.profiles.model;
 
 
-import com.scholarium.profiles.dto.CreateProfileDTO;
+import com.scholarium.profiles.dto.CreateGenericUserDto;
 import com.scholarium.profiles.enums.RoleEnum;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -15,8 +15,6 @@ import java.util.UUID;
 @Data
 @Entity(name = "profile")
 public class Profile {
-
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +33,7 @@ public class Profile {
     String photo;
     RoleEnum role;
 
-    public Profile(CreateProfileDTO user) {
+    public Profile(CreateGenericUserDto user) {
         this.uuid = UUID.randomUUID().toString();
         this.name = user.name();
         this.login = user.login();

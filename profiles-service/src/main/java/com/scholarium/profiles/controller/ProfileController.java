@@ -1,7 +1,7 @@
 package com.scholarium.profiles.controller;
 
-import com.scholarium.profiles.dto.CreateProfileDTO;
-import com.scholarium.profiles.dto.ProfileDTO;
+import com.scholarium.profiles.dto.CreateGenericUserDto;
+import com.scholarium.profiles.dto.GenericUserDto;
 import com.scholarium.profiles.service.ProfileService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +18,13 @@ public class ProfileController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> create(@RequestBody CreateProfileDTO user) throws IllegalAccessException {
+    public ResponseEntity<Void> create(@RequestBody CreateGenericUserDto user) throws IllegalAccessException {
         userService.create(user);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProfileDTO> findById(@PathVariable Long id) {
+    public ResponseEntity<GenericUserDto> findById(@PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.FOUND).body(userService.findById(id));
     }
 
