@@ -1,6 +1,6 @@
 # Scholarium
 
-O **Scholarium** é um sistema de gerenciamento escolar baseado em uma arquitetura de microserviços. Este repositório contém o código fonte do backend, desenvolvido com Java 17 e Spring Boot.
+O **Scholarium** é um sistema de gerenciamento escolar baseado em uma arquitetura de microserviços (apesar de estar em um unico repositório para facilitar o estudo). Este repositório contém o código fonte do backend, desenvolvido com Java 17 e Spring Boot.
 
 ## 🔧 Tecnologias Utilizadas
 
