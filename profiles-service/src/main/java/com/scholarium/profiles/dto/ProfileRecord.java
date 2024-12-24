@@ -1,13 +1,12 @@
 package com.scholarium.profiles.dto;
 
-public record CreateGenericUserDto(
+import com.scholarium.profiles.enums.RoleEnum;
+
+public record ProfileRecord(
         String name,
-        String login,
-        String password,
         String cpf,
         String address,
         String photo,
-        String role
-
+        RoleEnum role
 ) {
 }

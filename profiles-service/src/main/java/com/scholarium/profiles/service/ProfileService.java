@@ -1,8 +1,8 @@
 package com.scholarium.profiles.service;
 
 
-import com.scholarium.profiles.dto.CreateGenericUserDto;
-import com.scholarium.profiles.dto.GenericUserDto;
+import com.scholarium.profiles.dto.CreateProfileRecord;
+import com.scholarium.profiles.dto.ProfileRecord;
 import com.scholarium.profiles.enums.RoleEnum;
 import com.scholarium.profiles.model.Profile;
 import com.scholarium.profiles.repository.ProfileRepository;
@@ -29,8 +29,8 @@ public class ProfileService {
         this.userRepository = userRepository;
     }
 
-    public GenericUserDto convertToRecord(Profile user) {
-        return new GenericUserDto(
+    public ProfileRecord convertToRecord(Profile user) {
+        return new ProfileRecord(
                 user.getName(),
                 user.getCpf(),
                 user.getAddress(),
@@ -39,7 +39,7 @@ public class ProfileService {
         );
     }
 
-    public Profile create(CreateGenericUserDto userRecord) throws IllegalAccessException {
+    public Profile create(CreateProfileRecord userRecord) throws IllegalAccessException {
         Optional<Profile> byLogin = userRepository.findByLogin(userRecord.login());
 
         if (byLogin.isPresent()){
@@ -64,7 +64,7 @@ public class ProfileService {
         return userRepository.save(user);
     }
 
-    public GenericUserDto findById(Long id) {
+    public ProfileRecord findById(Long id) {
         Profile user = userRepository.findByIdAndDeletedFalse(id).orElseThrow(() -> new NoSuchElementException(USER_NOT_FOUND));
         return convertToRecord(user);
     }

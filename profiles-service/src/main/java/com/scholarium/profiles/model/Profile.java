@@ -1,7 +1,7 @@
 package com.scholarium.profiles.model;
 
 
-import com.scholarium.profiles.dto.CreateGenericUserDto;
+import com.scholarium.profiles.dto.CreateProfileRecord;
 import com.scholarium.profiles.enums.RoleEnum;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -33,7 +33,7 @@ public class Profile {
     String photo;
     RoleEnum role;
 
-    public Profile(CreateGenericUserDto user) {
+    public Profile(CreateProfileRecord user) {
         this.uuid = UUID.randomUUID().toString();
         this.name = user.name();
         this.login = user.login();
